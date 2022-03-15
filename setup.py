@@ -19,9 +19,10 @@ meta = {
     'version': f'{name}/__init__.py',
     'authors': 'AUTHORS',
     'license': 'LICENSE',
-    'install_requires': [
+    'setup_requires': [
         'wheel',
     ],
+    'license_files': ('LICENSE',),
 }
 """
 Various meta values used in the configuration.
@@ -174,7 +175,7 @@ def _setup(meta_):
         description=short_description,
         long_description=long_description,
         packages=_packages,
-        install_requires=meta_['install_requires'],
+        setup_requires=meta_['setup_requires'],
     )
 
 if __name__ == '__main__':
