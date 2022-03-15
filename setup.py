@@ -9,7 +9,7 @@ _env_falsey_vals = ['n', 'no', 'false', '0']
 These values are used to test against potential environment variable values
 that default to being true.
 """
-name = 'g_logger_utils'
+name = 'glogger'
 meta = {
     'name': name,
     'backup_packages': {

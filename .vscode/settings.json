@@ -1,5 +1,4 @@
 {
-    "esbonio.server.enabled": true,
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#1c65b1",
         "activityBar.activeBorder": "#e975ae",

@@ -1,4 +1,4 @@
 *****
-g_logger_utils
+glogger
 *****
 A utility package for logger boilerplate code.
