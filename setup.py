@@ -18,6 +18,7 @@ meta = {
     'readme': 'README.rst',
     'version': f'{name}/__init__.py',
     'authors': 'AUTHORS',
+    'license': 'LICENSE',
 }
 """
 Various meta values used in the configuration.
@@ -94,6 +95,8 @@ def readme(readme_file: str) -> str:
 def get_short_description(_readme: str) -> str:
     """
     Takes the readme raw string and grabs the short description from it.
+    Does not throw an exception if the short description is not found.
+    If the short description is not found, 'No description found.' is returned.
 
     PARAMETERS
     ----------
@@ -104,15 +107,18 @@ def get_short_description(_readme: str) -> str:
     -
         The short description as a str.
     """
-    lines = _readme.split('\n')
-    idx = -1
-    for i in range(len(lines)):
-        if lines[i].startswith(name):
-            # 2 indexes forward because of rst formatting
-            idx = i+2
-            break
-    if idx != -1:
-        return lines[idx]
+    try:
+        lines = _readme.split('\n')
+        idx = -1
+        for i in range(len(lines)):
+            if lines[i].startswith(name):
+                # 2 indexes forward because of rst formatting
+                idx = i+2
+                break
+        if idx != -1:
+            return lines[idx]
+    except:
+        pass
     return 'No description found.'
 
 
@@ -134,10 +140,10 @@ def get_version(version_file):
     # Inspired by https://stackoverflow.com/a/7071358
     import re
     ver_str_line = open(version_file, 'rt').read()
-    vsre = r'^__version__ = \((\d+), (\d+), (\d+)\)'
+    vsre = r'__version_info__ *= *\( *(\d+) *, *(\d+) *, *(\d+) *\)'
     mo = re.search(vsre, ver_str_line, re.M)
     if mo:
-        vertup = mo.group(1)
+        vertup = mo.group(1), mo.group(2), mo.group(3)
     else:
         raise RuntimeError('Unable to find version string in %s.' %
                            (version_file,))
