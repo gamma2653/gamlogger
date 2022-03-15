@@ -22,7 +22,9 @@ meta = {
     'setup_requires': [
         'wheel',
     ],
+    'license': 'UNLICENSE',
     'license_files': ('LICENSE',),
+    'long_description_content_type': 'text/x-rst',
 }
 """
 Various meta values used in the configuration.
@@ -176,6 +178,9 @@ def _setup(meta_):
         long_description=long_description,
         packages=_packages,
         setup_requires=meta_['setup_requires'],
+        license=meta_['license'],
+        license_files=meta_['license_files'],
+        long_description_content_type=meta_['long_description_content_type'],
     )
 
 if __name__ == '__main__':

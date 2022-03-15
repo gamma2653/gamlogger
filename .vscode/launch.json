@@ -5,22 +5,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "args": ["sdist"],
-      "name": "Python: Setup file (sdist)",
+      "args": ["sdist", "bdist_wheel"],
+      "name": "Python: Setup file",
       "type": "python",
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
       "justMyCode": true
     },
-    {
-      "args": ["bdist_wheel"],
-      "name": "Python: Setup file (bdist_wheel)",
-      "type": "python",
-      "request": "launch",
-      "program": "${file}",
-      "console": "integratedTerminal",
-      "justMyCode": true
-    }
   ]
 }
