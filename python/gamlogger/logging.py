@@ -1,8 +1,3 @@
-__version_info__ = (0, 9, 0)
-__version__ = '.'.join(map(str, __version_info__))
-
-__all__ = ['read_level_from_args', 'get_default_logger']
-
 import argparse as _argparse
 import logging as _logging
 import os as _os
